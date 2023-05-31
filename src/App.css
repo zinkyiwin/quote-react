@@ -43,3 +43,7 @@ h2 {
   background-color: cyan;
   bottom: 0;
 }
+
+.footerFixed {
+  position: fixed;
+}

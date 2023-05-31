@@ -5,16 +5,15 @@ const LoadingContext = createContext();
 const LoadingUpdateContext = createContext();
 
 const LoadingProvider = (({ children }) => {
-    const [loading, setLoading] = useState(true);
+    const [isLoading, setLoading] = useState(true);
 
-    function updateLoading(isLoading) {
-        console.log("isLoading", loading, isLoading)
-        setLoading(isLoading)
+    function updateLoading(loadingState) {
+        setLoading(loadingState)
     }
 
     return (
-        <LoadingContext.Provider value={loading}>
-            <LoadingUpdateContext.Provider value={() => updateLoading()}>
+        <LoadingContext.Provider value={isLoading}>
+            <LoadingUpdateContext.Provider value={(loadingState) => updateLoading(loadingState)}>
                 {children}
             </LoadingUpdateContext.Provider>
         </LoadingContext.Provider>
