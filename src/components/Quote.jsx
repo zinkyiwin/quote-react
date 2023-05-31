@@ -8,7 +8,7 @@ function Quote() {
 
     const isLoading = useLoadingContext();
     const updateLoading = useLoadingUpdateContext();
-    
+
     useEffect(() => {
         const fetchQuotes = () => {
             const myHeaders = new Headers();
@@ -24,36 +24,40 @@ function Quote() {
                 .then(response => response.json())
                 .then(result => {
                     setQuotes(result)
-                    updateLoading(false);                 
+                    updateLoading(false);
                 })
                 .catch(error => console.log('error', error));
         }
 
         fetchQuotes()
-        
+
 
         setTimeout(() => console.log(isLoading, "JfdfgdJ"), 2000)
 
     }, [])
 
     return (
-        <div>
+        <div >
 
-            {!isLoading ? quotes && quotes.map((quote, index) => (
-                <div className='row ' key={index}>
-                    <div className='col gy-3'>
-                        <div className='card h-100 '>
-                            <h1 className='card-header'>{quote.category}</h1>
-                            <p className='card-body'>{quote.quote}</p>
-                            <h3 className='card-footer text-end'>{quote.author}</h3>
-                        </div>
+            {!isLoading ? quotes && (
+                <div className='container'>
+                    <div className='row'>
+                        {
+                            quotes.map((quote, index) => (
+                                <div className='col-sm-6 col-lg-3 gy-3' key={index}>
+                                    <div className='card h-100 '>
+                                        <h1 className='card-header'>{quote.category}</h1>
+                                        <p className='card-body'>{quote.quote}</p>
+                                        <h3 className='card-footer text-end'>{quote.author}</h3>
+                                    </div>
+                                </div>
+                            ))
+                        }
                     </div>
                 </div>
-            )) :
-                (<div className="text-center">
-                    <div className="spinner-border" role="status">
-                        <span className="visually-hidden">Loading...</span>
-                    </div>
+            ) :
+                (<div className="d-flex justify-content-center align-items-center" style={{ height: 900 }}>
+                    <span className='spinner-border text-primary'></span>
                 </div>)
             }
 
