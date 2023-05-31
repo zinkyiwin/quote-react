@@ -1,0 +1,45 @@
+.header {
+  height: 5em;
+  padding: 25px;
+  margin-bottom: 2em;
+  background: rgba(0, 191, 255, 0.845);
+}
+
+.logo {
+  width: 3em;
+  padding: 1em;
+}
+
+h2 {
+  color: blue;
+  float: right;
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 2em;
+  color: darkblue;
+}
+
+
+.card {
+  padding: 10px;
+  font-family: cursive;
+}
+
+.card-header {
+  text-transform: uppercase;
+  font-size: 1.5em;
+  text-align: center;
+}
+
+.footer {
+  width: 100%;
+  font-size: 1.5em;
+  margin-top: .5em;
+  padding: 1em;
+  text-align: center;
+  background-color: cyan;
+  bottom: 0;
+}
